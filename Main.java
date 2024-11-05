@@ -20,14 +20,14 @@ public class Main {
                 customName = new Name(nameParts[0]);
                 break;
             default:
-                customName = new Name(""); // В случае пустого ввода
+                customName = new Name("");
                 break;
         }
 
         System.out.println("\nСозданное имя:");
         System.out.println(customName);
 
-        // Работа со временем: вводим количество секунд с начала суток
+        // Задача со временем
         System.out.println("\nВведите количество секунд с начала суток: ");
         Time timeFromSeconds;
         while (true) {
@@ -78,7 +78,6 @@ public class Main {
         System.out.println("Минуты: " + customTime.getMinutes());
         System.out.println("Секунды: " + customTime.getSeconds());
 
-        // Дополнительные задания по времени
         System.out.println("\nВывод времени в различных единицах:");
         
         System.out.println("Введите количество секунд для преобразования в часы: ");
@@ -93,7 +92,7 @@ public class Main {
         int secondsForSeconds = Integer.parseInt(scanner.nextLine());
         System.out.println(secondsForSeconds + " секунд соответствуют " + secondsForSeconds + " секундам.");
 
-        // Работа с сотрудниками и отделами
+        // Задача с сотрудниками и отделами
         System.out.println("\nВведите имена сотрудников через пробел: ");
         String[] employeeNames = scanner.nextLine().split(" ");
         Department itDepartment = new Department("IT");
