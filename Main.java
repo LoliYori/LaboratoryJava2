@@ -6,8 +6,18 @@ public class Main {
 
         // Работа с именами
         System.out.println("Введите Фамилию, Имя и Отчество через пробел: ");
-        String[] nameParts = scanner.nextLine().split(" ");
+        String[] nameParts;
         Name customName;
+        
+        while (true) {
+            String inputName = scanner.nextLine().trim();
+            if (inputName.isEmpty()) {
+                System.out.println("Ошибка: введите Фамилию, Имя и Отчество через пробел:");
+                continue;
+            }
+            nameParts = inputName.split(" ");
+            break;
+        }
 
         switch (nameParts.length) {
             case 3:
@@ -32,7 +42,12 @@ public class Main {
         Time timeFromSeconds;
         while (true) {
             try {
-                timeFromSeconds = new Time(Integer.parseInt(scanner.nextLine()));
+                int seconds = Integer.parseInt(scanner.nextLine());
+                if (seconds < 0) {
+                    System.out.println("Ошибка: введите неотрицательное число секунд.");
+                    continue;
+                }
+                timeFromSeconds = new Time(seconds);
                 break;
             } catch (NumberFormatException e) {
                 System.out.println("Ошибка: введите корректное число секунд.");
@@ -49,7 +64,15 @@ public class Main {
             String[] timeParts = input.split(" ");
             if (timeParts.length == 3) {
                 try {
-                    customTime = new Time(Integer.parseInt(timeParts[0]), Integer.parseInt(timeParts[1]), Integer.parseInt(timeParts[2]));
+                    int hours = Integer.parseInt(timeParts[0]);
+                    int minutes = Integer.parseInt(timeParts[1]);
+                    int seconds = Integer.parseInt(timeParts[2]);
+                    if (hours < 0 || minutes < 0 || seconds < 0) {
+                        System.out.println("Ошибка: введите неотрицательные значения для часов, минут и секунд.");
+                        scanner.close();
+                        return;
+                    }
+                    customTime = new Time(hours, minutes, seconds);
                 } catch (NumberFormatException e) {
                     System.out.println("Ошибка: введите корректные числа для часов, минут и секунд.");
                     scanner.close();
@@ -62,7 +85,13 @@ public class Main {
             }
         } else {
             try {
-                customTime = new Time(Integer.parseInt(input));
+                int seconds = Integer.parseInt(input);
+                if (seconds < 0) {
+                    System.out.println("Ошибка: введите неотрицательное число секунд.");
+                    scanner.close();
+                    return;
+                }
+                customTime = new Time(seconds);
             } catch (NumberFormatException e) {
                 System.out.println("Ошибка: введите корректное число секунд.");
                 scanner.close();
@@ -73,28 +102,19 @@ public class Main {
         System.out.println("\nТекущее время:");
         System.out.println(customTime);
 
-        // Информация о времени
-        System.out.println("Час: " + customTime.getHours());
-        System.out.println("Минуты: " + customTime.getMinutes());
-        System.out.println("Секунды: " + customTime.getSeconds());
-
-        System.out.println("\nВывод времени в различных единицах:");
-        
-        System.out.println("Введите количество секунд для преобразования в часы: ");
-        int secondsForHours = Integer.parseInt(scanner.nextLine());
-        System.out.println(secondsForHours + " секунд соответствуют " + (secondsForHours / 3600) + " часам.");
-
-        System.out.println("Введите количество секунд для преобразования в минуты: ");
-        int secondsForMinutes = Integer.parseInt(scanner.nextLine());
-        System.out.println(secondsForMinutes + " секунд соответствуют " + (secondsForMinutes / 60) + " минутам.");
-
-        System.out.println("Введите количество секунд для преобразования в секунды: ");
-        int secondsForSeconds = Integer.parseInt(scanner.nextLine());
-        System.out.println(secondsForSeconds + " секунд соответствуют " + secondsForSeconds + " секундам.");
-
         // Задача с сотрудниками и отделами
         System.out.println("\nВведите имена сотрудников через пробел: ");
-        String[] employeeNames = scanner.nextLine().split(" ");
+        String[] employeeNames;
+        while (true) {
+            String inputEmployees = scanner.nextLine().trim();
+            if (inputEmployees.isEmpty()) {
+                System.out.println("Ошибка: введите хотя бы одно имя сотрудника.");
+                continue;
+            }
+            employeeNames = inputEmployees.split(" ");
+            break;
+        }
+
         Department itDepartment = new Department("IT");
 
         for (String employeeName : employeeNames) {
@@ -144,7 +164,6 @@ public class Main {
             }
         }
 
-        // Закрываем сканер
         scanner.close();
     }
 }
