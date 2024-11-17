@@ -19,7 +19,7 @@ public class Name {
         this.middleName = middleName;
     }
 
-    // Свойство
+    // Метод
     public String toString() {
         StringBuilder sb = new StringBuilder();
         if (!lastName.isEmpty()) sb.append(lastName);
