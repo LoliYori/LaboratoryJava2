@@ -13,7 +13,7 @@ public class Department {
         this.employees = new ArrayList<>();
     }
 
-    // Методы
+    // Свойство
     public String getName() {
         return name;
     }
@@ -34,7 +34,7 @@ public class Department {
         return employees;
     }
 
-    // Свойство
+    // Метод
     public String toString() {
         return "Отдел " + name + ", начальник отдела " + (boss != null ? boss.getName() : "не назначен");
     }
