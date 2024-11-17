@@ -1,8 +1,10 @@
 public class Employee {
+    // Поля
     private String name;
     private Department department;
     private Employee boss;
 
+    // Конструкторы
     public Employee(String name, Department department) {
         this.name = name;
         this.department = department;
@@ -10,6 +12,7 @@ public class Employee {
         department.addEmployee(this);
     }
 
+    // Методы
     public String getName() {
         return name;
     }
@@ -26,6 +29,7 @@ public class Employee {
         return department;
     }
 
+    // Свойство
     public String toString() {
         if (boss == null) {
             return name + " начальник отдела " + department.getName();
