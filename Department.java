@@ -2,15 +2,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Department {
+    // Поля
     private String name;
     private Employee boss;
     private List<Employee> employees;
 
+    // Конструкторы
     public Department(String name) {
         this.name = name;
         this.employees = new ArrayList<>();
     }
 
+    // Методы
     public String getName() {
         return name;
     }
@@ -31,6 +34,7 @@ public class Department {
         return employees;
     }
 
+    // Свойство
     public String toString() {
         return "Отдел " + name + ", начальник отдела " + (boss != null ? boss.getName() : "не назначен");
     }
