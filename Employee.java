@@ -12,7 +12,7 @@ public class Employee {
         department.addEmployee(this);
     }
 
-    // Методы
+    // Свойство
     public String getName() {
         return name;
     }
@@ -29,7 +29,7 @@ public class Employee {
         return department;
     }
 
-    // Свойство
+    // Метод
     public String toString() {
         if (boss == null) {
             return name + " начальник отдела " + department.getName();
