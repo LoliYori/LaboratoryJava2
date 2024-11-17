@@ -1,8 +1,10 @@
 public class Name {
+    // Поля
     private String lastName;
     private String firstName;
     private String middleName;
 
+    // Конструкторы
     public Name(String lastName) {
         this(lastName, "", "");
     }
@@ -17,6 +19,7 @@ public class Name {
         this.middleName = middleName;
     }
 
+    // Свойство
     public String toString() {
         StringBuilder sb = new StringBuilder();
         if (!lastName.isEmpty()) sb.append(lastName);
