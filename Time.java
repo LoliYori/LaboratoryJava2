@@ -1,6 +1,8 @@
 public class Time {
+    // Поля
     private int seconds;
 
+    // Конструкторы
     public Time(int seconds) {
         this.seconds = seconds % 86400;
     }
@@ -9,6 +11,7 @@ public class Time {
         this.seconds = (hours * 3600 + minutes * 60 + seconds) % 86400;
     }
 
+    // Методы
     public int getHours() {
         return seconds / 3600;
     }
@@ -21,6 +24,7 @@ public class Time {
         return seconds % 60; 
     }
 
+    // Свойство
     public String toString() {
         int hours = getHours();
         int minutes = getMinutes();
